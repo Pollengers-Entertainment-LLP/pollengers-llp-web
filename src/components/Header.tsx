@@ -12,6 +12,8 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
+    // UPDATED: Renamed 'Home' to 'Home / Services' to reflect the corporate homepage content
+    { name: 'Home', href: '/' }, 
     { name: 'The Band', href: '/the-band' }, 
     { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' },
@@ -36,8 +38,8 @@ const Header = () => {
             <Image
               src="/images/pollengers-logo.jpg"
               alt="Pollengers Logo"
-              width={48} 
-              height={48} 
+              width={64} 
+              height={64} 
               className="rounded-md"
             />
             <div className="leading-tight">

@@ -11,8 +11,8 @@ const Footer = () => {
         {/* Quick links for legal/standard pages */}
         <div className="mt-2 space-x-4">
           {/* Note: You will need to create the /privacy and /terms pages later */}
-          <Link href="/privacy" className="hover:text-white transition duration-150">Privacy Policy</Link>
-          <Link href="/terms" className="hover:text-white transition duration-150">Terms of Service</Link>
+          <Link href="/privacy-policy" className="hover:text-white transition duration-150">Privacy Policy</Link>
+          <Link href="/terms-of-service" className="hover:text-white transition duration-150">Terms of Service</Link>
         </div>
         
         {/* LLP Legal Information (taken from the EPK) */}

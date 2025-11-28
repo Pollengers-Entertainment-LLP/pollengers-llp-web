@@ -101,7 +101,7 @@ export default function ServicesPage() {
             href="/contact" 
             className="mt-6 inline-block bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-semibold py-3 px-8 rounded-lg transition duration-300"
           >
-            Contact Pollengers LLP
+            Contact Pollengers Entertainment LLP
           </Link>
         </div>
       </div>

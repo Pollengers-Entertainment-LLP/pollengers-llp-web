@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- Mobile Menu Toggle Logic (CSS Hack) --- */
+
+/* 1. Show the Menu Panel */
+/* When the hidden checkbox (#menu-toggle) is checked, find the sibling #mobile-menu and display it */
+#menu-toggle:checked ~ #mobile-menu {
+  display: block !important;
+}
+
+/* 2. Toggle the Icons */
+/* When the hidden checkbox (#menu-toggle) is checked, find the X (close) icon and display it */
+#menu-toggle:checked ~ nav #close-icon {
+  display: block !important;
+}
+
+/* When the hidden checkbox (#menu-toggle) is checked, find the Menu (hamburger) icon and hide it */
+#menu-toggle:checked ~ nav #menu-icon {
+  display: none !important;
+}

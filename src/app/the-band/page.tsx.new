@@ -1,0 +1,96 @@
+import { Mic, Guitar, Zap, BookOpen, Music } from 'lucide-react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'The Band Profile | Pollengers',
+  description: "Official biography, musical style, and repertoire for Pollengers, the Assam-based blues, funk & hard rock quartet.",
+};
+
+const bandBio = `
+Pollengers is an Assam-based quartet formed in 2015 by founder John Phukan. The band plays music that is primarily based on the dynamic and groove-heavy genres of blues, funk, and hard rock, covering both originals and classics. Their signature sound is characterized by face-melting solos and heart-pounding rhythms, making every show an unforgettable experience.
+`;
+
+const repertoire = [
+    { title: "Blues / Hard Rock", description: "Covers by giants like Johnny Lang, Buddy Guy, Eric Clapton, Deep Purple, ZZ Top, and Neil Young.", icon: Guitar },
+    { title: "Retro Rock", description: "Classic covers by influential bands such as The Beatles, appealing to broad audiences.", icon: Music },
+    { title: "Assamese Covers", description: "Powerful arrangements of popular regional hits, maintaining strong local connection.", icon: Mic },
+    { title: "Funk Fusion", description: "Focus on dynamic and groove-heavy fusion pieces, ensuring high energy on the dance floor.", icon: Zap },
+    { title: "Originals", description: "Performing their own compositions, showcasing their unique voice and songwriting.", icon: BookOpen }
+];
+
+export default function TheBandPage() {
+  return (
+    <main className="min-h-screen bg-gray-900 text-white pt-24 pb-16">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Header */}
+        <header className="text-center py-8 border-b border-gray-700 mb-10">
+          <h1 className="text-5xl font-extrabold text-white">
+            Meet <span className="text-yellow-400">The Pollengers</span>
+          </h1>
+          <p className="text-xl text-gray-400 mt-2">
+            The Assam-based quartet delivering blues, funk, and hard rock since 2015.
+          </p>
+        </header>
+
+        {/* Section 1: Band Biography */}
+        <section className="mb-10 p-6 bg-gray-800 rounded-xl shadow-2xl">
+          <h2 className="text-3xl font-bold text-yellow-400 mb-4">Biography</h2>
+          <p className="text-lg text-gray-300 whitespace-pre-line leading-relaxed">
+            {bandBio}
+          </p>
+          <div className="mt-6 text-center">
+             {/* Placeholder for a main band photo from the EPK */}
+             <div className="border border-dashed border-gray-600 p-8 rounded-lg">
+                <p className="text-gray-400">Band Photo Placeholder (EPK Image 2, 3, or 4)</p>
+             </div>
+          </div>
+        </section>
+        
+        {/* Section 2: Repertoire & Style */}
+        <section className="mb-10">
+            <h2 className="text-3xl font-bold text-white mb-6 border-b border-gray-700 pb-2">
+                Musical Repertoire
+            </h2>
+            <p className="text-lg text-gray-400 mb-8">
+                The Pollengers maintain a diverse and high-energy setlist covering multiple genres to suit various events and festivals.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {repertoire.map((item) => (
+                    <div key={item.title} className="p-5 bg-gray-800/50 rounded-lg shadow-lg transition duration-300 hover:bg-gray-700/70">
+                        <div className="flex items-center mb-3">
+                            <item.icon className="w-6 h-6 text-yellow-400 mr-3 flex-shrink-0" />
+                            <h3 className="text-xl font-semibold text-white">{item.title}</h3>
+                        </div>
+                        <p className="text-gray-300">{item.description}</p>
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        {/* Section 3: Notable Performances (Extracted from EPK Page 2) */}
+        <section className="mt-16 text-center">
+             <h2 className="text-3xl font-bold text-white mb-6">
+                Notable Performances
+            </h2>
+            <div className="flex flex-wrap justify-center gap-6">
+                <div className="p-4 bg-yellow-400 text-gray-900 font-bold rounded-lg shadow-lg">
+                    Hornbill Festival
+                </div>
+                <div className="p-4 bg-yellow-400 text-gray-900 font-bold rounded-lg shadow-lg">
+                    PPIF (Arunachal Pradesh)
+                </div>
+                <div className="p-4 bg-yellow-400 text-gray-900 font-bold rounded-lg shadow-lg">
+                    TANGSA MOH MOL
+                </div>
+            </div>
+            <p className="mt-6 text-lg text-gray-400">
+                The band has graced major stages, proving their capability for high-profile festival and corporate events.
+            </p>
+        </section>
+        
+      </div>
+    </main>
+  );
+}

@@ -4,7 +4,7 @@
  * Central hub for globally used website text and values.
  * Change values here to update them across the entire site.
  */
-export const CONTACT_EMAIL = 'pollengersrockband@gmail.com';
+export const CONTACT_EMAIL = 'hello@pollengers.com';
 export const MANAGER_JOHN_NAME = 'John Phukan';
 export const MANAGER_ADITYA_NAME = 'Aditya Dutta';
 export const PHONE_JOHN = '+91-91013-76196';

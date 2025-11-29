@@ -10,7 +10,7 @@ const actionItems = [
   {
     title: 'Download EPK & Technical Rider',
     description: 'Complete band bio, press materials, and technical requirements.',
-    href: '/documents/Pollengers-EPK-Low-Res-28112025.pdf',
+    href: '/documents/epk/pollengers-epk-2025-low-res.pdf',
     color: 'bg-yellow-600 hover:bg-yellow-700',
     icon: Download,
     download: true,

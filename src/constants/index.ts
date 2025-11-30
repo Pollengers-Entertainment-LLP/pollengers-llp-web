@@ -260,3 +260,50 @@ export const techSummary: TechSummaryItem[] = [
     detail: 'Amps',
   },
 ];
+
+// ===========================================
+// ROTATING / GUEST MUSICIANS
+// ===========================================
+export type RotatingPlayer = {
+  name: string;
+  instrument: 'Guitar' | 'Bass';
+  tag?: string; // e.g. "Guest Lead Guitar"
+  description: string;
+};
+
+export const rotatingPlayers: RotatingPlayer[] = [
+  {
+    name: 'Sunny Jaz',
+    instrument: 'Bass',
+    description:
+      'Infuses rhythm with magnetic energy and thunderous chops.',
+  },
+  {
+    name: 'Buman Kashyap',
+    instrument: 'Bass',
+    description:
+      'Versatile bassist delivering tight, locked-in rhythms with strong pocket feel.',
+  },
+  {
+    name: 'Derric Correa',
+    instrument: 'Guitar',
+    tag: 'Guest Lead Guitar',
+    description:
+      'Virtuoso guitarist who injects electrifying intricacies into every performance.',
+  },
+  {
+    name: 'Gytartha',
+    instrument: 'Guitar',
+    tag: 'Guest Lead Guitar',
+    description:
+      'Session lead guitarist, playing with multiple top-notch artists across Assam.',
+  },
+  {
+    name: 'Louis Sunil',
+    instrument: 'Guitar',
+    tag: 'Guest Lead Guitar',
+    description:
+      'Melodic guitarist with soulful tone and expressive phrasing.',
+  },
+];
+

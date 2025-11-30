@@ -15,6 +15,8 @@ import {
   type Video,
   type Playlist,
   type RepertoireItem,
+  rotatingPlayers,
+  type RotatingPlayer, 
 } from '@/constants';
 
 // --- Components for Video Section ---
@@ -220,6 +222,71 @@ export default function TheBandPage() {
 
         <hr className="my-16 border-gray-700" />
 
+        {/* 5b: Rotating & Guest Musicians */}
+        <section>
+          <h2 className="text-3xl font-extrabold text-yellow-400 mb-8 text-center">
+            Rotating &amp; Guest Musicians
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Guitar Players */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-100 mb-4">
+                Guitar Players
+              </h3>
+              <div className="space-y-3">
+                {rotatingPlayers
+                  .filter((player) => player.instrument === 'Guitar')
+                  .map((player) => (
+                    <div
+                      key={player.name}
+                      className="bg-gray-800 rounded-lg p-4 border border-gray-700/60"
+                    >
+                      <p className="font-semibold text-white">
+                        {player.name}
+                        {player.tag && (
+                          <span className="text-xs text-yellow-400 uppercase tracking-wider ml-2">
+                            ({player.tag})
+                          </span>
+                        )}
+                      </p>
+                      <p className="text-sm text-gray-300 mt-1">
+                        {player.description}
+                      </p>
+                    </div>
+                  ))}
+              </div>
+            </div>
+
+            {/* Bass Players */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-100 mb-4">
+                Bass Players
+              </h3>
+              <div className="space-y-3">
+                {rotatingPlayers
+                  .filter((player) => player.instrument === 'Bass')
+                  .map((player) => (
+                    <div
+                      key={player.name}
+                      className="bg-gray-800 rounded-lg p-4 border border-gray-700/60"
+                    >
+                      <p className="font-semibold text-white">
+                        {player.name}
+                      </p>
+                      <p className="text-sm text-gray-300 mt-1">
+                        {player.description}
+                      </p>
+                    </div>
+                  ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr className="my-16 border-gray-700" />
+
+
         {/* 6: Achievements and Technical Rider Summary */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Achievements */}
@@ -262,6 +329,30 @@ export default function TheBandPage() {
             </div>
           </div>
         </section>
+
+        <hr className="my-16 border-gray-700" />
+
+        {/* FINAL CTA: BOOKING BUTTON */}
+        <section className="text-center py-12">
+          <h2 className="text-3xl font-extrabold text-yellow-400 mb-4">
+            Ready to Book Pollengers?
+          </h2>
+
+          <p className="text-gray-300 mb-6">
+            Gigs • Festivals • Corporate Events • Private Shows
+          </p>
+
+          <Link
+            href="/contact"
+            className="inline-block px-10 py-4 text-lg font-bold uppercase tracking-wide
+                       bg-yellow-500 text-black rounded-full shadow-xl
+                       hover:bg-yellow-600 hover:scale-105 transform transition"
+          >
+            👉 Click Here To Book
+          </Link>
+        </section>
+
+
       </div>
     </main>
   );

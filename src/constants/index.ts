@@ -285,7 +285,7 @@ export const rotatingPlayers: RotatingPlayer[] = [
       'Versatile bassist delivering tight, locked-in rhythms with strong pocket feel.',
   },
   {
-    name: 'Derric Correa',
+    name: 'Derrick Correia',
     instrument: 'Guitar',
     tag: 'Guest Lead Guitar',
     description:

@@ -4,41 +4,48 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Services | Pollengers Entertainment LLP',
-  description: 'Explore the full range of services offered by Pollengers Entertainment LLP: Artist Management, Jingle/Audio Production, Music Education, Software, and Audio Solutions.',
+  description: 'Explore the full range of services offered by Pollengers Entertainment LLP: Live Performances, Artist Management, Jingle/Audio Production, Music Education, Software, and Audio Solutions.',
 };
 
-// Define the 5 business verticals with expanded descriptions
+// Define the 6 business verticals with expanded descriptions
 const servicesData = [
   { 
-    title: '1. Artist Management', 
+    title: '1. Live Music Performance & Events',
+    icon: Mic2,
+    description: 'Pollengers is a premier live performance act delivering high-energy shows for festivals, corporate events, club gigs, private bookings, and cultural showcases across Northeast India. Featuring originals and curated repertoire across blues, funk, hard rock, Bollywood and regional favorites.',
+    href: '/the-band',
+    bgClass: 'bg-yellow-900/40 hover:bg-yellow-800/60'
+  },
+  { 
+    title: '2. Artists & Events Management', 
     icon: Mic2, 
     description: 'We offer full-spectrum management services covering booking, PR, contract negotiation, and tour logistics. We focus on building sustainable careers for musicians and artists across diverse genres. This is where you can see our roster.', 
     href: '/services/artist-management',
     bgClass: 'bg-red-900/40 hover:bg-red-800/60'
   },
   { 
-    title: '2. Jingle/Audio Production', 
+    title: '3. Jingle/Audio Production', 
     icon: Speaker, 
     description: 'Our in-house production team specializes in creating memorable jingles, background scores, and premium audio branding for corporate clients, media campaigns, and films. We cover mixing, mastering, and sound design.', 
     href: '/services/audio-production',
     bgClass: 'bg-yellow-900/40 hover:bg-yellow-800/60'
   },
   { 
-    title: '3. Music Education', 
+    title: '4. Music Education', 
     icon: GraduationCap, 
     description: 'We run structured, modern music programs for all skill levels. From instrumental training (Guitar, Keyboard, Drums) to advanced music theory and audio engineering classes, we aim to nurture the next generation of professionals.', 
     href: '/services/music-education',
     bgClass: 'bg-green-900/40 hover:bg-green-800/60'
   },
   { 
-    title: '4. Software Solutions', 
+    title: '5. Software Solutions', 
     icon: Code, 
     description: 'Leveraging technology to advance the music industry, we develop custom e-learning platforms, music-related applications, and software tools designed to streamline production and education processes.', 
     href: '/services/softwares',
     bgClass: 'bg-blue-900/40 hover:bg-blue-800/60'
   },
   { 
-    title: '5. Audio Solutions', 
+    title: '6. Audio Solutions', 
     icon: Briefcase, 
     description: 'Providing comprehensive technical consulting for sound installations, acoustic treatment design, and supply of professional audio equipment for live venues, studios, schools, and corporate spaces.', 
     href: '/services/audio-solutions',
@@ -56,7 +63,7 @@ export default function ServicesPage() {
             Our <span className="text-yellow-400">Services</span>
           </h1>
           <p className="mt-4 text-xl text-gray-400 max-w-3xl mx-auto">
-            Pollengers Entertainment LLP is a diverse corporate entity with five distinct verticals driving professional excellence in the music and entertainment sector.
+            Pollengers Entertainment LLP is a diverse corporate entity with six distinct verticals driving professional excellence in the music and entertainment sector.
           </p>
         </header>
 

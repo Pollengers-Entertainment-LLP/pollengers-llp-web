@@ -124,29 +124,30 @@ const PlaylistPanel = ({ playlist }: { playlist: Playlist }) => {
 
           {/* Left fade + arrow */}
           {canScrollLeft && (
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-gray-800 to-transparent flex items-center">
+            <div className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 w-12">
               <button
                 type="button"
                 onClick={() => handleArrowClick('left')}
-                className="pointer-events-auto ml-1 rounded-full bg-black/60 p-1.5 hover:bg-yellow-500/80 transition"
+                className="pointer-events-auto ml-1 rounded-full bg-black/70 p-2 hover:bg-yellow-500/80 transition"
               >
-                <ChevronLeft className="w-4 h-4 text-yellow-300" />
+                <ChevronLeft className="w-6 h-6 text-yellow-400" />
               </button>
             </div>
           )}
 
+
           {/* Right fade + arrow */}
           {canScrollRight && (
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-gray-800 to-transparent flex items-center justify-end">
-              <button
-                type="button"
-                onClick={() => handleArrowClick('right')}
-                className="pointer-events-auto mr-1 rounded-full bg-black/60 p-1.5 hover:bg-yellow-500/80 transition"
-              >
-                <ChevronRight className="w-4 h-4 text-yellow-300" />
-              </button>
-            </div>
-          )}
+          <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 w-12 flex justify-end">
+            <button
+              type="button"
+              onClick={() => handleArrowClick('right')}
+              className="pointer-events-auto mr-1 rounded-full bg-black/70 p-2 hover:bg-yellow-500/80 transition"
+            >
+              <ChevronRight className="w-6 h-6 text-yellow-400" />
+            </button>
+          </div>
+        )}
         </div>
 
         <p className="text-center text-gray-500 text-sm mt-2">

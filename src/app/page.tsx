@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Briefcase, Mic2, GraduationCap, Code, Speaker, ArrowRight } from 'lucide-react';
+import { Briefcase, Mic2, Drum, GraduationCap, Code, Speaker, ArrowRight } from 'lucide-react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const servicesData = [
   { 
     title: '1. Live Music Performance & Events',
-    icon: Mic2,
+    icon: Drum,
     description: 'Pollengers is a premier live performance act delivering high-energy shows for festivals, corporate events, club gigs, private bookings, and cultural showcases across Northeast India. Featuring originals and curated repertoire across blues, funk, hard rock, Bollywood and regional favorites.',
     href: '/the-band',
     bgClass: 'bg-yellow-900/40 hover:bg-yellow-800/60'
@@ -20,35 +20,35 @@ const servicesData = [
     title: '2. Artists & Events Management', 
     icon: Mic2, 
     description: 'We offer full-spectrum management services covering booking, PR, contract negotiation, and tour logistics. We focus on building sustainable careers for musicians and artists across diverse genres. This is where you can see our roster.', 
-    href: '/services/artist-management',
+    href: '#',
     bgClass: 'bg-red-900/40 hover:bg-red-800/60'
   },
   { 
     title: '3. Jingle/Audio Production', 
     icon: Speaker, 
     description: 'Our in-house production team specializes in creating memorable jingles, background scores, and premium audio branding for corporate clients, media campaigns, and films. We cover mixing, mastering, and sound design.', 
-    href: '/services/audio-production',
+    href: '#',
     bgClass: 'bg-yellow-900/40 hover:bg-yellow-800/60'
   },
   { 
     title: '4. Music Education', 
     icon: GraduationCap, 
     description: 'We run structured, modern music programs for all skill levels. From instrumental training (Guitar, Keyboard, Drums) to advanced music theory and audio engineering classes, we aim to nurture the next generation of professionals.', 
-    href: '/services/music-education',
+    href: '#',
     bgClass: 'bg-green-900/40 hover:bg-green-800/60'
   },
   { 
     title: '5. Software Solutions', 
     icon: Code, 
     description: 'Leveraging technology to advance the music industry, we develop custom e-learning platforms, music-related applications, and software tools designed to streamline production and education processes.', 
-    href: '/services/softwares',
+    href: '#',
     bgClass: 'bg-blue-900/40 hover:bg-blue-800/60'
   },
   { 
     title: '6. Audio Solutions', 
     icon: Briefcase, 
     description: 'Providing comprehensive technical consulting for sound installations, acoustic treatment design, and supply of professional audio equipment for live venues, studios, schools, and corporate spaces.', 
-    href: '/services/audio-solutions',
+    href: '#',
     bgClass: 'bg-purple-900/40 hover:bg-purple-800/60'
   },
 ];
@@ -86,14 +86,14 @@ export default function ServicesPage() {
                 {service.description}
               </p>
               
-              {/*<div className="mt-6">
+              <div className="mt-6">
                 <Link 
                   href={service.href} 
                   className="inline-flex items-center text-yellow-400 font-semibold hover:text-yellow-300 transition duration-150"
                 >
                   Learn More <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
-              </div>*/}
+              </div>
             </div>
           ))}
         </div>

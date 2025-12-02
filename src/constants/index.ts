@@ -78,7 +78,7 @@ export const PLAYLISTS: Playlist[] = [
         subtitle: 'Behind-the-scenes stage setup and live sound rehearsal',
       },
       {
-        videosId:'zddT8D5uwt0',
+        videoId:'zddT8D5uwt0',
         title:'Robbie Williams – Better Man (Soundcheck)',
         subtitle:'Live vocal rehearsal at PPIF 2025'
       }

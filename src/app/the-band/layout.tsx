@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     'Pollengers — Assam-based blues, funk & hard rock band since 2015. Watch live videos, meet the band, view the technical rider and book us directly.',
 
   openGraph: {
-    title: 'Pollengers | Official EPK & Booking',
+    title: 'Pollengers Music | Band Bio | Videos',
     description:
       'Assam-based blues, funk & hard rock band since 2015. Watch live clips, view lineup & rider, and book directly.',
     url: 'https://pollengers.com/the-band',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-    title: 'Pollengers | Official EPK & Booking',
+    title: 'Pollengers Music | Band Bio ',
     description:
       'Assam-based blues, funk & hard rock band since 2015. Watch live clips, view lineup & rider, and book directly.',
     images: [

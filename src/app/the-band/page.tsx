@@ -1,10 +1,11 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Film, ChevronDown, ChevronUp } from 'lucide-react';
+import { Film, ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from 'lucide-react';
+
 
 import {
   bandBio,
@@ -46,6 +47,37 @@ const VideoCard = ({ videoId, title, subtitle }: Video) => (
 const PlaylistPanel = ({ playlist }: { playlist: Playlist }) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  // Check scroll position to toggle arrows
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const updateScrollState = () => {
+      setCanScrollLeft(el.scrollLeft > 0);
+      setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
+    };
+
+    updateScrollState();
+    el.addEventListener('scroll', updateScrollState);
+    window.addEventListener('resize', updateScrollState);
+
+    return () => {
+      el.removeEventListener('scroll', updateScrollState);
+      window.removeEventListener('resize', updateScrollState);
+    };
+  }, []);
+
+  const handleArrowClick = (direction: 'left' | 'right') => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const amount = direction === 'left' ? -el.clientWidth : el.clientWidth;
+    el.scrollBy({ left: amount, behavior: 'smooth' });
+  };
+
   return (
     <div className="mb-6 bg-gray-800 rounded-xl shadow-2xl transition-shadow duration-300 hover:shadow-yellow-500/30">
       {/* Header / Collapse Trigger */}
@@ -72,26 +104,59 @@ const PlaylistPanel = ({ playlist }: { playlist: Playlist }) => {
           isOpen ? 'max-h-[600px] opacity-100 p-5 pt-0' : 'max-h-0 opacity-0 p-0'
         }`}
       >
-        {/* Horizontal Scrolling Video Cards */}
-        <div className="flex space-x-4 overflow-x-auto p-2 pb-4 snap-x snap-mandatory scroll-smooth">
-          {playlist.videos.map((video, index) => (
-            <VideoCard
-              key={index}
-              videoId={video.videoId}
-              title={video.title}
-              subtitle={video.subtitle}
-            />
-          ))}
-          {/* Invisible div to ensure the scrollbar has space */}
-          <div className="flex-shrink-0 w-2"></div>
+        <div className="relative">
+          {/* Horizontal Scrolling Video Cards */}
+          <div
+            ref={scrollRef}
+            className="flex space-x-4 overflow-x-auto p-2 pb-4 snap-x snap-mandatory scroll-smooth"
+          >
+            {playlist.videos.map((video, index) => (
+              <VideoCard
+                key={index}
+                videoId={video.videoId}
+                title={video.title}
+                subtitle={video.subtitle}
+              />
+            ))}
+            {/* Invisible div to ensure the scrollbar has space */}
+            <div className="flex-shrink-0 w-2" />
+          </div>
+
+          {/* Left fade + arrow */}
+          {canScrollLeft && (
+            <div className="pointer-events-none absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-gray-800 to-transparent flex items-center">
+              <button
+                type="button"
+                onClick={() => handleArrowClick('left')}
+                className="pointer-events-auto ml-1 rounded-full bg-black/60 p-1.5 hover:bg-yellow-500/80 transition"
+              >
+                <ChevronLeft className="w-4 h-4 text-yellow-300" />
+              </button>
+            </div>
+          )}
+
+          {/* Right fade + arrow */}
+          {canScrollRight && (
+            <div className="pointer-events-none absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-gray-800 to-transparent flex items-center justify-end">
+              <button
+                type="button"
+                onClick={() => handleArrowClick('right')}
+                className="pointer-events-auto mr-1 rounded-full bg-black/60 p-1.5 hover:bg-yellow-500/80 transition"
+              >
+                <ChevronRight className="w-4 h-4 text-yellow-300" />
+              </button>
+            </div>
+          )}
         </div>
+
         <p className="text-center text-gray-500 text-sm mt-2">
-          Swipe/Scroll right to see more demos.
+          Tap the arrows or swipe sideways to see more demos.
         </p>
       </div>
     </div>
   );
 };
+
 
 export default function TheBandPage() {
   return (

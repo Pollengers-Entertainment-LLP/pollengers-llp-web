@@ -68,20 +68,37 @@ export type Playlist = {
 
 export const PLAYLISTS: Playlist[] = [
   {
+    id:'band_promos',
+    name: 'Band Promo & Press Reels',
+    description: 'Short-form promotional videos crafted for festivals, venues, and media teams—highlighting our live energy, sound identity, and stage presence for booking and press use.',
+    videos:[
+      {
+        videoId: 'sypA-J4TiU0',
+        title: 'PPIF 2025 – Soundcheck Session',
+        subtitle: 'Behind-the-scenes stage setup and live sound rehearsal',
+      },
+      {
+        videosId:'zddT8D5uwt0',
+        title:'Robbie Williams – Better Man (Soundcheck)',
+        subtitle:'Live vocal rehearsal at PPIF 2025'
+      }
+    ] 
+  },
+  {
     id: 'live_shows',
     name: 'Live Performance Highlights',
     description:
       'See the band in action, featuring high-energy originals and covers from major venues across Northeast India.',
     videos: [
       {
-        videoId: '4FNIf9JTQMs',
-        title: 'Aalo Winter Fest',
-        subtitle: 'Aalo Winter Fest Arunachal Pradesh',
+        videoId: 'vlR51iEK5tE',
+        title: 'Mere Bina (Bollywood Cover)',
+        subtitle: 'Tangsa Moh Mol Festival 2025 (Arunachal Pradesh)',
       },
       {
-        videoId: 'fsjF5XS_EMs',
-        title: 'Siang River Festival Pasighat',
-        subtitle: 'Pollengers Live Performances',
+        videoId: 'NUXjWEqO7ik',
+        title: 'Kudi nu nachne de (Bollywood Cover)',
+        subtitle: 'Pangsau Pass Inauguration Festival 2025 (Arunachal Pradesh)',
       },
       {
         videoId: 'LpG2bl62jlY',
@@ -90,16 +107,17 @@ export const PLAYLISTS: Playlist[] = [
       },
       {
         videoId: 'NUXjWEqO7ik',
-        title: 'PPIF 2025',
-        subtitle: 'Pollengers Live Performances',
+        title: 'Crazy little thing called love - Queen(cover)',
+        subtitle: 'Siang River Festival Pasighat (Arunachal Pradesh)',
       },
       {
-        videoId: 'vlR51iEK5tE',
-        title: 'MOH MOL 2025',
+        videoId: 'DgY-sml9gAs',
+        title: 'World Music Day - 2016 , Guwahati (Assam)',
         subtitle: 'Pollengers Live Performances',
       }
     ],
   },
+
   {
     id: 'band_originals',
     name: 'The Originals: Studio & Live Tracks',
@@ -180,7 +198,7 @@ export const actionItems: ActionItem[] = [
   {
     title: 'Download High-Res Band Photo',
     description: 'Print-ready image for posters, flyers, and promotional use.',
-    href: '/images/pollengers-band-hires.jpg',
+    href: '/documents/pollengers-high-res.pdf',
     color: 'bg-gray-600 hover:bg-gray-700',
     icon: Zap,
     download: true,

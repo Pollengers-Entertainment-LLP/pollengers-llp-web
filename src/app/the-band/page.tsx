@@ -110,7 +110,7 @@ const PlaylistPanel = ({ playlist }: { playlist: Playlist }) => {
             ref={scrollRef}
             className="flex space-x-4 overflow-x-auto p-2 pb-4 snap-x snap-mandatory scroll-smooth"
           >
-            {playlist.videos.filter(video => video.enabled).map((video, index) => (
+            {playlist.videos.filter(video => video.enabled).sort((a, b) => a.order - b.order).map((video, index) => (
               <VideoCard
                 key={index}
                 videoId={video.videoId}
@@ -304,6 +304,7 @@ export default function TheBandPage() {
               <div className="space-y-3">
                 {rotatingPlayers
                   .filter((player) => player.instrument === 'Guitar' && player.enabled)
+                  .sort((a, b) => a.order - b.order)
                   .map((player) => (
                     <div
                       key={player.name}
@@ -333,6 +334,7 @@ export default function TheBandPage() {
               <div className="space-y-3">
                 {rotatingPlayers
                   .filter((player) => player.instrument === 'Bass' && player.enabled)
+                  .sort((a, b) => a.order - b.order)
                   .map((player) => (
                     <div
                       key={player.name}

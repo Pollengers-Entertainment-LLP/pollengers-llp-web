@@ -76,13 +76,15 @@ export const PLAYLISTS: Playlist[] = [
         videoId: 'sypA-J4TiU0',
         title: 'PPIF 2025 – Soundcheck Session',
         subtitle: 'Behind-the-scenes stage setup and live sound rehearsal',
-        enabled: false
+        enabled: false,
+        order: 1,
       },
       {
         videoId:'zddT8D5uwt0',
         title:'Robbie Williams – Better Man (Soundcheck)',
         subtitle:'Live vocal rehearsal at PPIF 2025',
-        enabled: true
+        enabled: true,
+        order: 2,
       }
     ] 
   },
@@ -96,31 +98,36 @@ export const PLAYLISTS: Playlist[] = [
         videoId: 'vlR51iEK5tE',
         title: 'Mere Bina (Bollywood Cover)',
         subtitle: 'Tangsa Moh Mol Festival 2025 (Arunachal Pradesh)',
-        enabled: true
+        enabled: true,
+        order: 3,
       },
       {
         videoId: 'NUXjWEqO7ik',
         title: 'Kudi nu nachne de (Bollywood Cover)',
         subtitle: 'Pangsau Pass Inauguration Festival 2025 (Arunachal Pradesh)',
-        enabled: true
+        enabled: true,
+        order: 4,
       },
       {
         videoId: 'LpG2bl62jlY',
         title: 'Bodoland Riders Meet 2020',
         subtitle: 'Pollengers Live Performances',
-        enabled: true
+        enabled: true,
+        order: 5,
       },
       {
         videoId: 'NUXjWEqO7ik',
         title: 'Crazy little thing called love - Queen(cover)',
         subtitle: 'Siang River Festival Pasighat (Arunachal Pradesh)',
-        enabled: true
+        enabled: true,
+        order: 6,
       },
       {
         videoId: 'DgY-sml9gAs',
         title: 'World Music Day - 2016 , Guwahati (Assam)',
         subtitle: 'Pollengers Live Performances',
-        enabled: true
+        enabled: true,
+        order: 7,
       }
     ],
   },
@@ -135,19 +142,22 @@ export const PLAYLISTS: Playlist[] = [
         videoId: 'oDma147ebLE',
         title: 'Balighar - Pollengers OST',
         subtitle: 'Assamese original song by Pollengers',
-        enabled: true
+        enabled: true,
+        order: 8,
       },
       {
         videoId: 'gPX98ia5qaQ',
         title: 'Ubhoti Nahu Ghuri - Pollengers OST',
         subtitle: 'Assamese original song by Pollengers',
-        enabled: true
+        enabled: true,
+        order: 9,
       },
       {
         videoId: '4L1pqhNECkA',
         title: 'Mukoli Mon Mukto Aakaax - Pollengers OST',
         subtitle: 'Assamese original song by Pollengers',
-        enabled: true
+        enabled: true,
+        order: 10,
       },
     ],
   },
@@ -161,19 +171,22 @@ export const PLAYLISTS: Playlist[] = [
         videoId: 'QRRZ1gj4GZY',
         title: 'Soku meli saute - Zubeen Garg Cover',
         subtitle: 'The Great Zubeen Da',
-        enabled: true
+        enabled: true,
+        order: 11,
       },
       {
         videoId: '1ApT_CT0Ys8',
         title: 'Voodoo Child - Jimi Hendrix Cover',
         subtitle: 'Jimi Hendrix Experience',
-        enabled: true
+        enabled: true,
+        order: 12,
       },
       {
         videoId: 'twiqbENWdDI',
         title: 'I wanna hold your hand - The Beatles Cover',
         subtitle: 'The Beatles',
-        enabled: true
+        enabled: true,
+        order: 13,
       }
     ],
   },
@@ -218,51 +231,6 @@ export const actionItems: ActionItem[] = [
   },
 ];
 
-// ===========================================
-// BAND LINEUP
-// ===========================================
-export type BandMember = {
-  name: string;
-  role: string;
-  bio: string;
-  icon: LucideIcon;
-  focus: string;
-};
-
-export const bandMembers: BandMember[] = [
-  {
-    name: 'John Phukan',
-    role: 'Lead Vocals & Guitar',
-    bio: 'Founder, Lead Vocalist, and Principal Guitarist. John anchors the band as its dual-threat performer, handling both lead vocals and complex guitar duties alone. Renowned for his searing guitar work and dynamic vocals.',
-    icon: Mic,
-    focus: 'Lead, Vocals',
-    enabled: true
-  },
-  {
-    name: 'Aditya Dutta',
-    role: 'Drums & Percussions',
-    bio: 'Master of rhythm specializing in Classic Rock, Hard Rock, Alternative Rock, and Reggae. Has extensively toured North East India, playing for literally thousands of people.',
-    icon: Drum,
-    focus: 'Rhythm, Groove',
-    enabled: true
-  },
-  {
-    name: 'Vishal Thapa',
-    role: 'Keyboards & Synth',
-    bio: "Classically trained pianist known for his dynamic fusion of progressive metal, jazz, blues, and pop. His improvisational skills are key to the band's versatility.",
-    icon: Zap,
-    focus: 'Synth, Improv',
-    enabled: true
-  },
-  {
-    name: 'Prasenjit Das',
-    role: 'Bass',
-    bio: 'Driving groove anchor known for locked-in basslines and high-energy stage presence.',
-    icon: Guitar,
-    focus: 'Bass, Energy',
-    enabled: true
-  },
-];
 
 // ===========================================
 // TECHNICAL RIDER SUMMARY
@@ -297,6 +265,56 @@ export const techSummary: TechSummaryItem[] = [
 ];
 
 // ===========================================
+// BAND LINEUP
+// ===========================================
+export type BandMember = {
+  name: string;
+  role: string;
+  bio: string;
+  icon: LucideIcon;
+  focus: string;
+};
+
+export const bandMembers: BandMember[] = [
+  {
+    name: 'John Phukan',
+    role: 'Lead Vocals & Guitar',
+    bio: 'Founder, Lead Vocalist, and Principal Guitarist. John anchors the band as its dual-threat performer, handling both lead vocals and complex guitar duties alone. Renowned for his searing guitar work and dynamic vocals.',
+    icon: Mic,
+    focus: 'Lead, Vocals',
+    enabled: true,
+    order: 1,
+  },
+  {
+    name: 'Aditya Dutta',
+    role: 'Drums & Percussions',
+    bio: 'Master of rhythm specializing in Classic Rock, Hard Rock, Alternative Rock, and Reggae. Has extensively toured North East India, playing for literally thousands of people.',
+    icon: Drum,
+    focus: 'Rhythm, Groove',
+    enabled: true,
+    order: 2,
+  },
+  {
+    name: 'Vishal Thapa',
+    role: 'Keyboards & Synth',
+    bio: "Classically trained pianist known for his dynamic fusion of progressive metal, jazz, blues, and pop. His improvisational skills are key to the band's versatility.",
+    icon: Zap,
+    focus: 'Synth, Improv',
+    enabled: true,
+    order: 3,
+  },
+  {
+    name: 'Prasenjit Das',
+    role: 'Bass',
+    bio: 'Driving groove anchor known for locked-in basslines and high-energy stage presence.',
+    icon: Guitar,
+    focus: 'Bass, Energy',
+    enabled: true,
+    order: 4,
+  },
+];
+
+// ===========================================
 // ROTATING / GUEST MUSICIANS
 // ===========================================
 export type RotatingPlayer = {
@@ -312,14 +330,16 @@ export const rotatingPlayers: RotatingPlayer[] = [
     instrument: 'Bass',
     description:
       'Infuses rhythm with magnetic energy and thunderous chops.',
-    enabled: true
+    enabled: true,
+    order: 5,
   },
   {
     name: 'Buman Kashyap',
     instrument: 'Bass',
     description:
       'Versatile bassist delivering tight, locked-in rhythms with strong pocket feel.',
-    enabled: true
+    enabled: true,
+    order: 6,
   },
   {
     name: 'Derrick Correia',
@@ -327,7 +347,8 @@ export const rotatingPlayers: RotatingPlayer[] = [
     tag: 'Guest Lead Guitar',
     description:
       'Virtuoso guitarist who injects electrifying intricacies into every performance.',
-    enabled: true
+    enabled: true,
+    order: 7,
   },
   {
     name: 'Gytartha',
@@ -335,7 +356,8 @@ export const rotatingPlayers: RotatingPlayer[] = [
     tag: 'Guest Lead Guitar',
     description:
       'Session lead guitarist, playing with multiple top-notch artists across Assam.',
-    enabled: true
+    enabled: true,
+    order: 8,
   },
   {
     name: 'Louis Sunil',
@@ -343,7 +365,8 @@ export const rotatingPlayers: RotatingPlayer[] = [
     tag: 'Guest Lead Guitar',
     description:
       'Melodic guitarist with soulful tone and expressive phrasing.',
-    enabled: true
+    enabled: true,
+    order: 9,
   },
 ];
 

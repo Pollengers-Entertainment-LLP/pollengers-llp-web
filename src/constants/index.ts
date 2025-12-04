@@ -57,6 +57,8 @@ export type Video = {
   videoId: string;
   title: string;
   subtitle: string;
+  enabled: boolean;   //REQUIRED
+  order: number;      //REQUIRED
 };
 
 export type Playlist = {
@@ -273,6 +275,8 @@ export type BandMember = {
   bio: string;
   icon: LucideIcon;
   focus: string;
+  enabled: boolean;
+  order: number;  
 };
 
 export const bandMembers: BandMember[] = [
@@ -322,6 +326,8 @@ export type RotatingPlayer = {
   instrument: 'Guitar' | 'Bass';
   tag?: string; // e.g. "Guest Lead Guitar"
   description: string;
+  enabled: boolean;
+  order : number;
 };
 
 export const rotatingPlayers: RotatingPlayer[] = [

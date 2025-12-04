@@ -23,7 +23,12 @@ import {
 
 // --- Components for Video Section ---
 
-const VideoCard = ({ videoId, title, subtitle }: Video) => (
+const VideoCard = ({
+  videoId,
+  title,
+  subtitle,
+}: Pick<Video, 'videoId' | 'title' | 'subtitle'>) => (
+
   <div className="flex-shrink-0 w-full snap-start sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] bg-gray-900 rounded-lg shadow-xl overflow-hidden hover:scale-[1.02] transition duration-300">
     <div className="aspect-video">
       <iframe
@@ -110,13 +115,16 @@ const PlaylistPanel = ({ playlist }: { playlist: Playlist }) => {
             ref={scrollRef}
             className="flex space-x-4 overflow-x-auto p-2 pb-4 snap-x snap-mandatory scroll-smooth"
           >
-            {playlist.videos.filter(video => video.enabled).sort((a, b) => a.order - b.order).map((video, index) => (
-              <VideoCard
-                key={index}
-                videoId={video.videoId}
-                title={video.title}
-                subtitle={video.subtitle}
-              />
+            {playlist.videos
+              .filter(video => video.enabled)
+              .sort((a, b) => a.order - b.order)
+              .map((video, index) => (
+                <VideoCard
+                  key={index}
+                  videoId={video.videoId}
+                  title={video.title}
+                  subtitle={video.subtitle}
+                />
             ))}
             {/* Invisible div to ensure the scrollbar has space */}
             <div className="flex-shrink-0 w-2" />

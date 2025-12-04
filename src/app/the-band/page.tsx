@@ -110,7 +110,7 @@ const PlaylistPanel = ({ playlist }: { playlist: Playlist }) => {
             ref={scrollRef}
             className="flex space-x-4 overflow-x-auto p-2 pb-4 snap-x snap-mandatory scroll-smooth"
           >
-            {playlist.videos.map((video, index) => (
+            {playlist.videos.filter(video => video.enabled).map((video, index) => (
               <VideoCard
                 key={index}
                 videoId={video.videoId}
@@ -256,7 +256,7 @@ export default function TheBandPage() {
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {bandMembers.map((member, index) => (
+            {bandMembers.filter(member => member.enabled).map((member, index) => (
               <div
                 key={index}
                 className="bg-gray-800 rounded-xl shadow-xl overflow-hidden transform hover:scale-[1.01] transition duration-300"
@@ -303,7 +303,7 @@ export default function TheBandPage() {
               </h3>
               <div className="space-y-3">
                 {rotatingPlayers
-                  .filter((player) => player.instrument === 'Guitar')
+                  .filter((player) => player.instrument === 'Guitar' && player.enabled)
                   .map((player) => (
                     <div
                       key={player.name}
@@ -332,7 +332,7 @@ export default function TheBandPage() {
               </h3>
               <div className="space-y-3">
                 {rotatingPlayers
-                  .filter((player) => player.instrument === 'Bass')
+                  .filter((player) => player.instrument === 'Bass' && player.enabled)
                   .map((player) => (
                     <div
                       key={player.name}

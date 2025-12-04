@@ -76,11 +76,13 @@ export const PLAYLISTS: Playlist[] = [
         videoId: 'sypA-J4TiU0',
         title: 'PPIF 2025 – Soundcheck Session',
         subtitle: 'Behind-the-scenes stage setup and live sound rehearsal',
+        enabled: false
       },
       {
         videoId:'zddT8D5uwt0',
         title:'Robbie Williams – Better Man (Soundcheck)',
-        subtitle:'Live vocal rehearsal at PPIF 2025'
+        subtitle:'Live vocal rehearsal at PPIF 2025',
+        enabled: true
       }
     ] 
   },
@@ -94,26 +96,31 @@ export const PLAYLISTS: Playlist[] = [
         videoId: 'vlR51iEK5tE',
         title: 'Mere Bina (Bollywood Cover)',
         subtitle: 'Tangsa Moh Mol Festival 2025 (Arunachal Pradesh)',
+        enabled: true
       },
       {
         videoId: 'NUXjWEqO7ik',
         title: 'Kudi nu nachne de (Bollywood Cover)',
         subtitle: 'Pangsau Pass Inauguration Festival 2025 (Arunachal Pradesh)',
+        enabled: true
       },
       {
         videoId: 'LpG2bl62jlY',
         title: 'Bodoland Riders Meet 2020',
         subtitle: 'Pollengers Live Performances',
+        enabled: true
       },
       {
         videoId: 'NUXjWEqO7ik',
         title: 'Crazy little thing called love - Queen(cover)',
         subtitle: 'Siang River Festival Pasighat (Arunachal Pradesh)',
+        enabled: true
       },
       {
         videoId: 'DgY-sml9gAs',
         title: 'World Music Day - 2016 , Guwahati (Assam)',
         subtitle: 'Pollengers Live Performances',
+        enabled: true
       }
     ],
   },
@@ -128,16 +135,19 @@ export const PLAYLISTS: Playlist[] = [
         videoId: 'oDma147ebLE',
         title: 'Balighar - Pollengers OST',
         subtitle: 'Assamese original song by Pollengers',
+        enabled: true
       },
       {
         videoId: 'gPX98ia5qaQ',
         title: 'Ubhoti Nahu Ghuri - Pollengers OST',
         subtitle: 'Assamese original song by Pollengers',
+        enabled: true
       },
       {
         videoId: '4L1pqhNECkA',
         title: 'Mukoli Mon Mukto Aakaax - Pollengers OST',
         subtitle: 'Assamese original song by Pollengers',
+        enabled: true
       },
     ],
   },
@@ -151,16 +161,19 @@ export const PLAYLISTS: Playlist[] = [
         videoId: 'QRRZ1gj4GZY',
         title: 'Soku meli saute - Zubeen Garg Cover',
         subtitle: 'The Great Zubeen Da',
+        enabled: true
       },
       {
         videoId: '1ApT_CT0Ys8',
         title: 'Voodoo Child - Jimi Hendrix Cover',
         subtitle: 'Jimi Hendrix Experience',
+        enabled: true
       },
       {
         videoId: 'twiqbENWdDI',
         title: 'I wanna hold your hand - The Beatles Cover',
         subtitle: 'The Beatles',
+        enabled: true
       }
     ],
   },
@@ -223,6 +236,7 @@ export const bandMembers: BandMember[] = [
     bio: 'Founder, Lead Vocalist, and Principal Guitarist. John anchors the band as its dual-threat performer, handling both lead vocals and complex guitar duties alone. Renowned for his searing guitar work and dynamic vocals.',
     icon: Mic,
     focus: 'Lead, Vocals',
+    enabled: true
   },
   {
     name: 'Aditya Dutta',
@@ -230,6 +244,7 @@ export const bandMembers: BandMember[] = [
     bio: 'Master of rhythm specializing in Classic Rock, Hard Rock, Alternative Rock, and Reggae. Has extensively toured North East India, playing for literally thousands of people.',
     icon: Drum,
     focus: 'Rhythm, Groove',
+    enabled: true
   },
   {
     name: 'Vishal Thapa',
@@ -237,6 +252,7 @@ export const bandMembers: BandMember[] = [
     bio: "Classically trained pianist known for his dynamic fusion of progressive metal, jazz, blues, and pop. His improvisational skills are key to the band's versatility.",
     icon: Zap,
     focus: 'Synth, Improv',
+    enabled: true
   },
   {
     name: 'Prasenjit Das',
@@ -244,6 +260,7 @@ export const bandMembers: BandMember[] = [
     bio: 'Driving groove anchor known for locked-in basslines and high-energy stage presence.',
     icon: Guitar,
     focus: 'Bass, Energy',
+    enabled: true
   },
 ];
 
@@ -295,12 +312,14 @@ export const rotatingPlayers: RotatingPlayer[] = [
     instrument: 'Bass',
     description:
       'Infuses rhythm with magnetic energy and thunderous chops.',
+    enabled: true
   },
   {
     name: 'Buman Kashyap',
     instrument: 'Bass',
     description:
       'Versatile bassist delivering tight, locked-in rhythms with strong pocket feel.',
+    enabled: true
   },
   {
     name: 'Derrick Correia',
@@ -308,6 +327,7 @@ export const rotatingPlayers: RotatingPlayer[] = [
     tag: 'Guest Lead Guitar',
     description:
       'Virtuoso guitarist who injects electrifying intricacies into every performance.',
+    enabled: true
   },
   {
     name: 'Gytartha',
@@ -315,6 +335,7 @@ export const rotatingPlayers: RotatingPlayer[] = [
     tag: 'Guest Lead Guitar',
     description:
       'Session lead guitarist, playing with multiple top-notch artists across Assam.',
+    enabled: true
   },
   {
     name: 'Louis Sunil',
@@ -322,6 +343,7 @@ export const rotatingPlayers: RotatingPlayer[] = [
     tag: 'Guest Lead Guitar',
     description:
       'Melodic guitarist with soulful tone and expressive phrasing.',
+    enabled: true
   },
 ];
 

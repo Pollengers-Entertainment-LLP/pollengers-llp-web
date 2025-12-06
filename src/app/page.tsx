@@ -20,7 +20,7 @@ const servicesData = [
     title: '2. Artists & Events Management', 
     icon: Mic2, 
     description: 'We offer full-spectrum management services covering booking, PR, contract negotiation, and tour logistics. We focus on building sustainable careers for musicians and artists across diverse genres. This is where you can see our roster.', 
-    href: '#',
+    href: '/artists',
     bgClass: 'bg-red-900/40 hover:bg-red-800/60'
   },
   { 

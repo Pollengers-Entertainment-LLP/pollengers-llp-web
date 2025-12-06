@@ -377,30 +377,62 @@ export const rotatingPlayers: RotatingPlayer[] = [
 ];
 
 // ===========================================
-// ARTISTS DIRECTORY
+// ARTISTS ROSTER (COLLAPSIBLE DIRECTORY)
 // ===========================================
-export type Artist = {
-  slug: string;           // URL-safe name
-  name: string;
-  shortBio: string;
-  location: string;
-  genres: string[];
-  featured: boolean;     // for homepage/promos later
-  heroImage?: string;    // optional image path
-  profileUrl: string;   // internal route
-};
 
-export const artists: Artist[] = [
-  {
-    slug: 'pollengers',
-    name: 'Pollengers',
-    shortBio: 'Assam-based blues, funk & hard rock band known for high-energy originals and classic covers since 2015.',
-    location: 'Guwahati, Assam',
-    genres: ['Blues', 'Funk', 'Hard Rock', 'Classic Rock'],
-    featured: true,
-    heroImage: '/images/artists/pollengers.jpg',
-    profileUrl: '/artists/pollengers',
-  },
+// ===========================================
+// ARTIST CATEGORY ORDER
+// ===========================================
+
+export const ARTIST_CATEGORIES: ArtistCategory[] = [
+  'Bands',
+  'DJs',
+  'Karaoke Singers',
+  'Solo Acts',
 ];
 
 
+export type ArtistCategory = 'Bands' | 'DJs' | 'Karaoke Singers' | 'Solo Acts';
+
+export type ArtistDirectoryItem = {
+  name: string;
+  slug: string;
+  category: ArtistCategory;
+  shortBio: string;
+  genres: string[];
+  enabled: boolean;
+  order: number;
+  profileUrl?: string;
+};
+
+export const artistsDirectory: ArtistDirectoryItem[] = [
+  {
+    name: 'Pollengers',
+    slug: 'pollengers',
+    category: 'Bands',
+    shortBio:
+      'Assam-based blues, funk & hard rock band known for electrifying live shows since 2015.',
+    genres: ['Blues', 'Funk', 'Hard Rock', 'Classic Rock'],
+    enabled: true,
+    order: 1,
+    profileUrl: '/the-band',
+  },
+  {
+    name: 'DJ Skywave',
+    slug: 'dj-skywave',
+    category: 'DJs',
+    shortBio: 'Commercial Bollywood & EDM open-format DJ for clubs and events.',
+    genres: ['Bollywood', 'EDM', 'Commercial'],
+    enabled: false,
+    order: 1,
+  },
+  {
+    name: 'Rahul Vox',
+    slug: 'rahul-vox',
+    category: 'Karaoke Singers',
+    shortBio: 'Hindi & Assamese karaoke performer specializing in classic hits.',
+    genres: ['Hindi', 'Assamese', 'Retro'],
+    enabled: true,
+    order: 1,
+  },
+];

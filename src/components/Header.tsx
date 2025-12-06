@@ -15,6 +15,7 @@ const Header = () => {
     // UPDATED: Renamed 'Home' to 'Home / Services' to reflect the corporate homepage content
     { name: 'Home', href: '/' }, 
     { name: 'The Band', href: '/the-band' }, 
+    { name: 'Artists', href:'/artists'},
     { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ];

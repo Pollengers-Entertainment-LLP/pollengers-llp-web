@@ -376,3 +376,31 @@ export const rotatingPlayers: RotatingPlayer[] = [
   },
 ];
 
+// ===========================================
+// ARTISTS DIRECTORY
+// ===========================================
+export type Artist = {
+  slug: string;           // URL-safe name
+  name: string;
+  shortBio: string;
+  location: string;
+  genres: string[];
+  featured: boolean;     // for homepage/promos later
+  heroImage?: string;    // optional image path
+  profileUrl: string;   // internal route
+};
+
+export const artists: Artist[] = [
+  {
+    slug: 'pollengers',
+    name: 'Pollengers',
+    shortBio: 'Assam-based blues, funk & hard rock band known for high-energy originals and classic covers since 2015.',
+    location: 'Guwahati, Assam',
+    genres: ['Blues', 'Funk', 'Hard Rock', 'Classic Rock'],
+    featured: true,
+    heroImage: '/images/artists/pollengers.jpg',
+    profileUrl: '/artists/pollengers',
+  },
+];
+
+

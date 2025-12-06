@@ -377,10 +377,6 @@ export const rotatingPlayers: RotatingPlayer[] = [
 ];
 
 // ===========================================
-// ARTISTS ROSTER (COLLAPSIBLE DIRECTORY)
-// ===========================================
-
-// ===========================================
 // ARTIST CATEGORY ORDER
 // ===========================================
 
@@ -391,6 +387,10 @@ export const ARTIST_CATEGORIES: ArtistCategory[] = [
   'Solo Acts',
 ];
 
+
+// ===========================================
+// ARTISTS ROSTER (COLLAPSIBLE DIRECTORY)
+// ===========================================
 
 export type ArtistCategory = 'Bands' | 'DJs' | 'Karaoke Singers' | 'Solo Acts';
 
@@ -403,6 +403,13 @@ export type ArtistDirectoryItem = {
   enabled: boolean;
   order: number;
   profileUrl?: string;
+  heroImage?: string; // path to image in /public
+  location?: string;
+  social?: {
+    facebook?: string;
+    instagram?: string;
+    youtube?: string;
+  };
 };
 
 export const artistsDirectory: ArtistDirectoryItem[] = [
@@ -413,26 +420,89 @@ export const artistsDirectory: ArtistDirectoryItem[] = [
     shortBio:
       'Assam-based blues, funk & hard rock band known for electrifying live shows since 2015.',
     genres: ['Blues', 'Funk', 'Hard Rock', 'Classic Rock'],
-    enabled: true,
+    enabled: false,
     order: 1,
     profileUrl: '/the-band',
+    heroImage: '/images/artists/pollengers.jpg', // or leave undefined
+    location: 'Guwahati, Assam · India',
+    social: {
+      facebook: 'https://www.facebook.com/pollengers',
+      instagram: 'https://instagram.com/pollengers',
+      youtube: 'https://www.youtube.com/@pollengersRockBand',
+    },
   },
+    // d-r-d.o.p.e
+  {
+    name: 'dr_d.o.p.e',
+    slug: 'drdope',
+    category: 'Bands',
+    shortBio:
+      'Jorhat',
+    genres: ['Blues', 'Funk', 'Hard Rock', 'Classic Rock'],
+    enabled: true,
+    order: 2,
+    profileUrl: '/artists/drdope',
+    heroImage: '/images/artists/pollengers.jpg', // or leave undefined
+    location: 'Guwahati, Assam · India',
+    social: {
+      facebook: 'https://www.facebook.com/pollengers',
+      instagram: 'https://instagram.com/pollengers',
+      youtube: 'https://www.youtube.com/@pollengersRockBand',
+    },
+  },
+
+  {
+    name: 'Collosial Corp',
+    slug: 'collosial_corp',
+    category: 'Bands',
+    shortBio:
+      'Assam-based blues, funk & hard rock band known for electrifying live shows since 2015.',
+    genres: ['Blues', 'Funk', 'Hard Rock', 'Classic Rock'],
+    enabled: true,
+    order: 3,
+    profileUrl: '/artists/collosial_corp',
+    heroImage: '/images/artists/pollengers.jpg', // or leave undefined
+    location: 'Guwahati, Assam · India',
+    social: {
+      facebook: 'https://www.facebook.com/pollengers',
+      instagram: 'https://instagram.com/pollengers',
+      youtube: 'https://www.youtube.com/@pollengersRockBand',
+    },
+  },
+
   {
     name: 'DJ Skywave',
     slug: 'dj-skywave',
     category: 'DJs',
     shortBio: 'Commercial Bollywood & EDM open-format DJ for clubs and events.',
     genres: ['Bollywood', 'EDM', 'Commercial'],
-    enabled: false,
+    enabled: true,
     order: 1,
+    profileUrl : '/artists/dj-skywave',
+    heroImage: '/images/artists/pollengers.jpg', // or leave undefined
+    location: 'Guwahati, Assam · India',
+    social: {
+      facebook: 'https://www.facebook.com/pollengers',
+      instagram: 'https://instagram.com/pollengers',
+      youtube: 'https://www.youtube.com/@pollengersRockBand',
+    },
   },
+
   {
-    name: 'Rahul Vox',
-    slug: 'rahul-vox',
+    name: 'Riyan Singer',
+    slug: 'riyan-singer',
     category: 'Karaoke Singers',
     shortBio: 'Hindi & Assamese karaoke performer specializing in classic hits.',
     genres: ['Hindi', 'Assamese', 'Retro'],
     enabled: true,
     order: 1,
+    profileUrl : '/artists/rahul-vox',
+    heroImage: '/images/artists/pollengers.jpg', // or leave undefined
+    location: 'Guwahati, Assam · India',
+    social: {
+      facebook: 'https://www.facebook.com/pollengers',
+      instagram: 'https://instagram.com/pollengers',
+      youtube: 'https://www.youtube.com/@pollengersRockBand',
+    },
   },
 ];

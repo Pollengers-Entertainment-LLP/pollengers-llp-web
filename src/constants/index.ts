@@ -1,4 +1,5 @@
     // src/constants/index.ts
+// src/constants/index.ts
 import {
   Mic,
   Guitar,
@@ -11,8 +12,12 @@ import {
   Download,
   MapPin,
   Disc,
+  Radio,      // ⬅️ add
+  Mic2,       // ⬅️ add
+  Users,      // ⬅️ add
   type LucideIcon,
 } from 'lucide-react';
+
 
 // ===========================================
 // GLOBAL CONTACT & SOCIAL LINKS
@@ -393,6 +398,15 @@ export const ARTIST_CATEGORIES: ArtistCategory[] = [
 // ===========================================
 
 export type ArtistCategory = 'Bands' | 'DJs' | 'Karaoke Singers' | 'Solo Acts';
+
+// Icon mapping for each artist category
+export const ARTIST_CATEGORY_ICONS: Record<ArtistCategory, LucideIcon> = {
+  Bands: Users,            // group icon
+  DJs: Radio,              // DJ / broadcast feel
+  'Karaoke Singers': Mic2, // mic icon
+  'Solo Acts': Music,     // music note
+};
+
 
 export type ArtistDirectoryItem = {
   name: string;

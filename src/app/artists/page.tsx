@@ -2,9 +2,13 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { ChevronDown, ChevronUp, Music } from 'lucide-react';
-import { ARTIST_CATEGORIES, artistsDirectory, type ArtistCategory } from '@/constants';
-
+import { ChevronDown, ChevronUp } from 'lucide-react';
+import {
+  ARTIST_CATEGORIES,
+  ARTIST_CATEGORY_ICONS,
+  artistsDirectory,
+  type ArtistCategory,
+} from '@/constants';
 
 export default function ArtistsPage() {
   const [openCategories, setOpenCategories] = useState<
@@ -35,7 +39,6 @@ export default function ArtistsPage() {
 
         {/* ================= CATEGORY PANELS ================= */}
         <div className="space-y-6">
-
           {ARTIST_CATEGORIES.map((category) => {
             const artists = artistsDirectory
               .filter(
@@ -48,26 +51,24 @@ export default function ArtistsPage() {
             if (!artists.length) return null;
 
             const isOpen = !!openCategories[category];
+            const Icon = ARTIST_CATEGORY_ICONS[category];
 
             return (
               <div
                 key={category}
                 className="bg-gray-800 rounded-xl overflow-hidden shadow-xl border border-gray-700/40"
               >
-
                 {/* Panel Header */}
                 <button
                   onClick={() => toggle(category)}
                   className="w-full flex justify-between items-center p-5 text-left"
                 >
                   <div className="flex items-center gap-3">
-                    <Music className="w-6 h-6 text-yellow-400" />
-
+                    <Icon className="w-6 h-6 text-yellow-400" />
                     <h2 className="text-2xl font-bold text-white">
                       {category}
                     </h2>
-
-                    <span className="text-sm text-gray-400 ml-2">
+                    <span className="ml-2 text-sm text-gray-400">
                       ({artists.length})
                     </span>
                   </div>
@@ -88,14 +89,12 @@ export default function ArtistsPage() {
                   }`}
                 >
                   <div className="space-y-4">
-
                     {artists.map((artist) => (
                       <div
                         key={artist.slug}
                         className="bg-gray-900 border border-gray-700/50 rounded-lg p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between"
                       >
                         <div>
-
                           <h3 className="text-xl font-bold text-yellow-400">
                             {artist.name}
                           </h3>
@@ -115,7 +114,6 @@ export default function ArtistsPage() {
                               </span>
                             ))}
                           </div>
-
                         </div>
 
                         {/* Optional Profile Link */}
@@ -129,15 +127,13 @@ export default function ArtistsPage() {
                         )}
                       </div>
                     ))}
-
                   </div>
                 </div>
-
               </div>
             );
           })}
-
         </div>
+
       </div>
     </main>
   );

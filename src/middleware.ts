@@ -2,34 +2,52 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(req: NextRequest) {
-  const { pathname } = req.nextUrl;
+  const originalPath = req.nextUrl.pathname;
 
-  // List of wrong or alternative URLs you want to auto-fix
-  const redirects: Record<string, string> = {
+  //ALWAYS allow home page
+  if (originalPath === '/') {
+    return NextResponse.next();
+  }
+
+  // Normalize path: lowercase + remove trailing slash
+  const normalizedPath = originalPath
+    .toLowerCase()
+    .replace(/\/$/, '');
+
+  // Redirect mixed/uppercase or trailing slash URLs
+  if (originalPath !== normalizedPath) {
+    const url = req.nextUrl.clone();
+    url.pathname = normalizedPath;
+    return NextResponse.redirect(url, 301);
+  }
+
+  // Central redirect map
+  const redirectMap: Record<string, string> = {
     '/theband': '/the-band',
     '/band': '/the-band',
+    '/pollenger': '/the-band',
     '/pollengers': '/the-band',
     '/aboutband': '/the-band',
     '/about-band': '/the-band',
-    '/profile/pollengers': '/the-band',
+    '/artist/pollengers': '/the-band',
     '/artists/pollengers': '/the-band',
+
+    '/artist': '/artists',
+    '/service': '/services',
+    '/contacts': '/contact',
   };
 
-  if (redirects[pathname]) {
-    return NextResponse.redirect(new URL(redirects[pathname], req.url));
+  const redirectTarget = redirectMap[normalizedPath];
+
+  if (redirectTarget) {
+    const url = req.nextUrl.clone();
+    url.pathname = redirectTarget;
+    return NextResponse.redirect(url, 301);
   }
 
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: [
-    '/theband',
-    '/band',
-    '/pollengers',
-    '/aboutband',
-    '/about-band',
-    '/profile/pollengers',
-    '/artists/pollengers',
-  ],
+  matcher: ['/:path*'], // keep global
 };

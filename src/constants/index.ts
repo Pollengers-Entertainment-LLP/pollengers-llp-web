@@ -50,149 +50,70 @@ export const repertoire: RepertoireItem[] = [
   { title: 'Hard Rock Anthems', icon: Guitar },
 ];
 
-// ===========================================
-// VIDEO PLAYLISTS
-// ===========================================
-export type Video = {
-  videoId: string;
-  title: string;
-  subtitle: string;
-  enabled: boolean;   //REQUIRED
-  order: number;      //REQUIRED
-};
+// VIDEO TYPES (YouTube driven)
 
-export type Playlist = {
+// CONFIG (input)
+export type PlaylistConfig = {
   id: string;
   name: string;
   description: string;
-  videos: Video[];
+  playlistId: string;
+  defaultOpen?: boolean;
 };
 
-export const PLAYLISTS: Playlist[] = [
+// RUNTIME DATA (output)
+export type YouTubeVideo = {
+  videoId: string;
+  title: string;
+  subtitle: string;
+};
+
+export type YouTubePlaylist = {
+  id: string;
+  name: string;
+  description: string;
+  videos: YouTubeVideo[];
+  defaultOpen?: boolean;
+};
+
+
+
+
+export const YOUTUBE_PLAYLISTS: PlaylistConfig[] = [
   {
-    id:'band_promos',
+    id: 'band_promos',
     name: 'Band Promo & Press Reels',
-    description: 'Short-form promotional videos crafted for festivals, venues, and media teams—highlighting our live energy, sound identity, and stage presence for booking and press use.',
-    videos:[
-      {
-        videoId: 'sypA-J4TiU0',
-        title: 'PPIF 2025 – Soundcheck Session',
-        subtitle: 'Behind-the-scenes stage setup and live sound rehearsal',
-        enabled: false,
-        order: 1,
-      },
-      {
-        videoId:'zddT8D5uwt0',
-        title:'Robbie Williams – Better Man (Soundcheck)',
-        subtitle:'Live vocal rehearsal at PPIF 2025',
-        enabled: true,
-        order: 2,
-      }
-    ] 
+    description:
+      'Short-form promotional videos for festivals, venues, and media teams.',
+    playlistId: 'PLx6_nfwfN8h0GyXAntvhyFmRXdpQpOZbb',
+    defaultOpen: false,
   },
   {
     id: 'live_shows',
     name: 'Live Performance Highlights',
     description:
-      'See the band in action, featuring high-energy originals and covers from major venues across Northeast India.',
-    videos: [
-      {
-        videoId: 'vlR51iEK5tE',
-        title: 'Mere Bina (Bollywood Cover)',
-        subtitle: 'Tangsa Moh Mol Festival 2025 (Arunachal Pradesh)',
-        enabled: true,
-        order: 3,
-      },
-      {
-        videoId: 'NUXjWEqO7ik',
-        title: 'Kudi nu nachne de (Bollywood Cover)',
-        subtitle: 'Pangsau Pass Inauguration Festival 2025 (Arunachal Pradesh)',
-        enabled: true,
-        order: 4,
-      },
-      {
-        videoId: 'LpG2bl62jlY',
-        title: 'Bodoland Riders Meet 2020',
-        subtitle: 'Pollengers Live Performances',
-        enabled: true,
-        order: 5,
-      },
-      {
-        videoId: 'NUXjWEqO7ik',
-        title: 'Crazy little thing called love - Queen(cover)',
-        subtitle: 'Siang River Festival Pasighat (Arunachal Pradesh)',
-        enabled: true,
-        order: 6,
-      },
-      {
-        videoId: 'DgY-sml9gAs',
-        title: 'World Music Day - 2016 , Guwahati (Assam)',
-        subtitle: 'Pollengers Live Performances',
-        enabled: true,
-        order: 7,
-      }
-    ],
+      'High-energy live performances from festivals and major venues.',
+    playlistId: 'PLx6_nfwfN8h3XLE98i6jMMXxX2DIZmWQM',
+    defaultOpen: true,
   },
-
   {
     id: 'band_originals',
     name: 'The Originals: Studio & Live Tracks',
     description:
-      "The heart of Pollengers: our self-penned songs that define our signature blend of blues, funk, and hard rock. Featuring official music videos and live original cuts.",
-    videos: [
-      {
-        videoId: 'oDma147ebLE',
-        title: 'Balighar - Pollengers OST',
-        subtitle: 'Assamese original song by Pollengers',
-        enabled: true,
-        order: 8,
-      },
-      {
-        videoId: 'gPX98ia5qaQ',
-        title: 'Ubhoti Nahu Ghuri - Pollengers OST',
-        subtitle: 'Assamese original song by Pollengers',
-        enabled: true,
-        order: 9,
-      },
-      {
-        videoId: '4L1pqhNECkA',
-        title: 'Mukoli Mon Mukto Aakaax - Pollengers OST',
-        subtitle: 'Assamese original song by Pollengers',
-        enabled: true,
-        order: 10,
-      },
-    ],
+      'Original compositions that define the Pollengers sound.',
+    playlistId: 'PLx6_nfwfN8h3jT-HiQaf1L4Jkt6o87Dna',
+    defaultOpen: false,
   },
   {
     id: 'jam_sessions',
     name: 'Behind the Scenes: Jam Sessions',
     description:
-      'Unfiltered, candid footage showcasing our raw creative process, musical chemistry, and spontaneous improvisations during band practice and studio warm-ups.',
-    videos: [
-      {
-        videoId: 'QRRZ1gj4GZY',
-        title: 'Soku meli saute - Zubeen Garg Cover',
-        subtitle: 'The Great Zubeen Da',
-        enabled: true,
-        order: 11,
-      },
-      {
-        videoId: '1ApT_CT0Ys8',
-        title: 'Voodoo Child - Jimi Hendrix Cover',
-        subtitle: 'Jimi Hendrix Experience',
-        enabled: true,
-        order: 12,
-      },
-      {
-        videoId: 'twiqbENWdDI',
-        title: 'I wanna hold your hand - The Beatles Cover',
-        subtitle: 'The Beatles',
-        enabled: true,
-        order: 13,
-      }
-    ],
+      'Raw rehearsals, jams, and candid musical moments.',
+    playlistId: 'PLx6_nfwfN8h3alJzX_nq5AyBf70qoP2xm',
+    defaultOpen: false,
   },
 ];
+
 
 // ===========================================
 // DOWNLOAD ACTION ITEMS
@@ -334,6 +255,7 @@ export const rotatingPlayers: RotatingPlayer[] = [
   {
     name: 'Sunny Jaz',
     instrument: 'Bass',
+    tag : 'Guest Bass Player',
     description:
       'Infuses rhythm with magnetic energy and thunderous chops.',
     enabled: true,
@@ -342,6 +264,7 @@ export const rotatingPlayers: RotatingPlayer[] = [
   {
     name: 'Buman Kashyap',
     instrument: 'Bass',
+    tag : 'Guest Bass Player',
     description:
       'Versatile bassist delivering tight, locked-in rhythms with strong pocket feel.',
     enabled: true,
@@ -375,4 +298,20 @@ export const rotatingPlayers: RotatingPlayer[] = [
     order: 9,
   },
 ];
+
+
+// ===========================================
+// ACHIEVEMENTS & NOTABLE PERFORMANCES
+// ===========================================
+
+export const achievements: string[] = [
+  'Hornbill Festival (Nagaland)',
+  'Pangsau Pass International Festival (PPIF 2025)',
+  'Siang River Festival (Arunachal Pradesh)',
+  'Cherry Blossom Festival (Shillong)',
+  'Major Venues: Hard Rock Cafe, Freemason\'s Brew Works, Café Hendrix',
+  'Shared the stage with renowned blues group Soulmate.',
+
+];
+
 

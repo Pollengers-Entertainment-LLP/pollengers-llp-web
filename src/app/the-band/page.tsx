@@ -8,6 +8,7 @@ import { fetchYouTubePlaylist } from '@/lib/youtube';
 
 import ShowsSection from './ShowsSection';
 import { fetchShows } from '@/lib/shows';
+import ShowCard from './ShowCard';
 
 import {
   bandBio,
@@ -46,7 +47,11 @@ export default async function TheBandPage() {
 
   /** Fetch Shows **/
 
-  const shows = await fetchShows();
+  const { upcoming, previous } = await fetchShows();
+
+  const MAX_VISIBLE = 100;
+  const upcomingVisible = upcoming.slice(0, MAX_VISIBLE);
+  const previousVisible = previous.slice(0, MAX_VISIBLE);
 
   return (
     <main className="min-h-screen bg-gray-900 text-white pt-20 pb-16">
@@ -95,7 +100,65 @@ export default async function TheBandPage() {
 
         {/* ====================== SHOWS ================ */}
 
-        <ShowsSection data={shows} />
+       <hr className="my-16 border-gray-700" />
+
+        {/* SHOWS TIMELINE */}
+        <section>
+          <h2 className="text-4xl font-extrabold text-yellow-400 mb-10 text-center">
+            Live Shows
+          </h2>
+
+          <div className="grid lg:grid-cols-2 gap-12">
+
+            {/* UPCOMING SHOWS */}
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Upcoming Shows
+              </h3>
+
+              <div className="max-h-[520px] overflow-y-auto pr-2 space-y-4
+                              scrollbar-thin scrollbar-thumb-gray-700">
+                {upcomingVisible.length ? (
+                  upcomingVisible.map(show => (
+                    <ShowCard
+                      key={`${show.date}-${show.venue}`}
+                      show={show}
+                    />
+                  ))
+                ) : (
+                  <p className="text-gray-400 italic">
+                    No upcoming shows announced yet.
+                  </p>
+                )}
+              </div>
+            </div>
+
+            {/* PAST SHOWS */}
+            <div>
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Past Shows
+              </h3>
+
+              <div className="max-h-[520px] overflow-y-auto pr-2 space-y-4
+                              scrollbar-thin scrollbar-thumb-gray-700">
+                {previousVisible.length ? (
+                  previousVisible.map(show => (
+                    <ShowCard
+                      key={`${show.date}-${show.venue}`}
+                      show={show}
+                    />
+                  ))
+                ) : (
+                  <p className="text-gray-400 italic">
+                    No past shows available.
+                  </p>
+                )}
+              </div>
+            </div>
+
+          </div>
+        </section>
+
 
 
         <hr className="my-16 border-gray-700" />

@@ -1,47 +1,33 @@
+import { MapPin, Lock } from 'lucide-react';
 import type { Show } from '@/constants';
-
-function formatDate(date: string) {
-  return new Date(date).toLocaleDateString('en-IN', {
-    day: '2-digit',
-    month: 'short',
-    year: 'numeric',
-  });
-}
 
 export default function ShowCard({ show }: { show: Show }) {
   return (
-    <div className="relative pl-10">
-      {/* Timeline dot */}
-      <span className="absolute left-1 top-2 w-3 h-3 rounded-full bg-yellow-400" />
+    <div className="bg-gray-800 rounded-lg p-4 shadow-md hover:shadow-yellow-500/20 transition">
+      
+      {/* DATE */}
+      <p className="text-xs text-gray-400 mb-1">
+        {show.date ? new Date(show.date).toDateString() : 'Unknown date'}
+      </p>
 
-      {/* Timeline line */}
-      <span className="absolute left-[7px] top-6 bottom-0 w-px bg-gray-700" />
-
-      <div
-        className="bg-gray-800 rounded-lg p-4 border border-gray-700
-                   hover:border-yellow-500/40 transition"
-      >
-        {/* Date */}
-        <p className="text-xs text-gray-400">
-          {formatDate(show.date)}
-        </p>
-
-        {/* Event name */}
-        <h4 className="text-lg font-bold text-yellow-400 mt-1">
-          {show.eventName}
+      {/* EVENT NAME + PRIVATE TAG */}
+      <div className="flex items-center gap-2">
+        <h4 className="text-lg font-semibold text-white">
+          {show.eventName || 'Private Party'}
         </h4>
 
-        {/* Private marker */}
         {show.isPrivate && (
-          <p className="text-xs text-gray-400 italic mt-0.5">
+          <span className="flex items-center gap-1 text-xs text-gray-400">
+            <Lock className="w-3 h-3" />
             Private Event
-          </p>
+          </span>
         )}
+      </div>
 
-        {/* Venue */}
-        <p className="text-sm text-gray-300 mt-2">
-          📍 {show.venue}
-        </p>
+      {/* VENUE */}
+      <div className="flex items-center gap-2 mt-1 text-sm text-gray-300">
+        <MapPin className="w-4 h-4 text-yellow-400" />
+        <span>{show.venue}</span>
       </div>
     </div>
   );

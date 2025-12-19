@@ -64,13 +64,13 @@ export async function fetchShows(): Promise<ShowsData> {
   previous.length && previous.sort((a, b) => b.date.localeCompare(a.date));
 
   // after sorting
-  const MAX_UPCOMING = 10;
-  const MAX_PREVIOUS = 10;
+  // const MAX_UPCOMING = 50;
+  // const MAX_PREVIOUS = 50;
 
-  return {
-    upcoming: upcoming.slice(0, MAX_UPCOMING),
-    previous: previous.slice(0, MAX_PREVIOUS),
-  };
+  // return {
+  //   upcoming: upcoming.slice(0, MAX_UPCOMING),
+  //   previous: previous.slice(0, MAX_PREVIOUS),
+  // };
 
 
   return { upcoming, previous };

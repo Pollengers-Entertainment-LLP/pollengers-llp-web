@@ -314,4 +314,22 @@ export const achievements: string[] = [
 
 ];
 
+//=========================
+// PAST & UPCOMING SHOWS
+//=========================
+
+export type Show = {
+  date: string;            // YYYY-MM-DD
+  eventName: string;       // defaults to "Private Party" at runtime
+  venue: string;           // mandatory
+  isPrivate: boolean;      // defaults to true at runtime
+};
+
+export type ShowsData = {
+  upcoming: Show[];
+  previous: Show[];
+};
+
+
+
 

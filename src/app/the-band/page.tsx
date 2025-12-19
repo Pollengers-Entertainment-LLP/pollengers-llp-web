@@ -6,6 +6,9 @@ import { Film } from 'lucide-react';
 import VideoSection from './VideoSection';
 import { fetchYouTubePlaylist } from '@/lib/youtube';
 
+import ShowsSection from './ShowsSection';
+import { fetchShows } from '@/lib/shows';
+
 import {
   bandBio,
   repertoire,
@@ -40,6 +43,10 @@ export default async function TheBandPage() {
       };
     })
   );
+
+  /** Fetch Shows **/
+
+  const shows = await fetchShows();
 
   return (
     <main className="min-h-screen bg-gray-900 text-white pt-20 pb-16">
@@ -83,6 +90,13 @@ export default async function TheBandPage() {
           {/* Client Component */}
           <VideoSection playlists={playlists} />
         </section>
+
+        <hr className="my-16 border-gray-700" />
+
+        {/* ====================== SHOWS ================ */}
+
+        <ShowsSection data={shows} />
+
 
         <hr className="my-16 border-gray-700" />
 

@@ -12,7 +12,7 @@ export async function fetchShows(): Promise<ShowsData> {
     `?key=${API_KEY}`;
 
   const res = await fetch(url, {
-    next: { revalidate: 60 }, // cache 1 hour
+    next: { revalidate: 300 }, // cache 1 hour
   });
 
   if (!res.ok) {
@@ -62,6 +62,16 @@ export async function fetchShows(): Promise<ShowsData> {
 
   upcoming.length && upcoming.sort((a, b) => a.date.localeCompare(b.date));
   previous.length && previous.sort((a, b) => b.date.localeCompare(a.date));
+
+  // after sorting
+  const MAX_UPCOMING = 10;
+  const MAX_PREVIOUS = 10;
+
+  return {
+    upcoming: upcoming.slice(0, MAX_UPCOMING),
+    previous: previous.slice(0, MAX_PREVIOUS),
+  };
+
 
   return { upcoming, previous };
 }

@@ -139,7 +139,7 @@ export default async function TheBandPage() {
                 Past Shows
               </h3>
 
-              <div className="max-h-[520px] overflow-y-auto pr-2 space-y-4
+              <div className="max-h-[250px] md:max-h-[520px] overflow-y-auto pr-2 space-y-4
                               scrollbar-thin scrollbar-thumb-gray-700">
                 {previousVisible.length ? (
                   previousVisible.map(show => (

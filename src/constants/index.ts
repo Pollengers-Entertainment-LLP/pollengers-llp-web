@@ -331,5 +331,17 @@ export type ShowsData = {
 };
 
 
+//======================
+// IMAGE GALLERY
+//=======================
+
+export interface GalleryImage {
+  id: string;
+  url: string;
+  location: string;
+  dateOrYear: string;
+  hasImage: boolean;
+}
+
 
 

@@ -2,6 +2,22 @@
 const nextConfig = {
   reactStrictMode: true,
 
+  //ADD THIS SECTION to allow Google Drive images
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'lh3.googleusercontent.com',
+        pathname: '**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'drive.google.com',
+        pathname: '**',
+      },
+    ],
+  },
+
   async redirects() {
     return [
       {

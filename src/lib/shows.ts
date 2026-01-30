@@ -4,7 +4,7 @@ import type { Show, ShowsData } from '@/constants';
 
 const SHEET_ID = process.env.GOOGLE_SHEETS_ID!;
 const API_KEY = process.env.GOOGLE_SHEETS_API_KEY!;
-const SHEET_NAME = process.env.GOOGLE_SHEETS_NAME!;
+const SHEET_NAME = process.env.GOOGLE_SHEETS_GIGS_NAME!;
 
 export async function fetchShows(): Promise<ShowsData> {
   const url =

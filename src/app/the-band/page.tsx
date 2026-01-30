@@ -1,7 +1,7 @@
 // src/app/the-band/page.tsx
 import Link from 'next/link';
 import Image from 'next/image';
-import { Film } from 'lucide-react';
+import { Film, Camera } from 'lucide-react'; 
 
 import VideoSection from './VideoSection';
 import { fetchYouTubePlaylist } from '@/lib/youtube';
@@ -9,6 +9,10 @@ import { fetchYouTubePlaylist } from '@/lib/youtube';
 import ShowsSection from './ShowsSection';
 import { fetchShows } from '@/lib/shows';
 import ShowCard from './ShowCard';
+
+import GallerySection from './GallerySection';
+import { fetchGallery } from '@/lib/gallery';
+import GalleryCard from './GalleryCard';
 
 import {
   bandBio,
@@ -53,6 +57,11 @@ export default async function TheBandPage() {
   const upcomingVisible = upcoming.slice(0, MAX_VISIBLE);
   const previousVisible = previous.slice(0, MAX_VISIBLE);
 
+  /** Fetch Gallery **/
+
+  const { galleryData } =  await fetchGallery();
+  console.log(galleryData);
+
   return (
     <main className="min-h-screen bg-gray-900 text-white pt-20 pb-16">
       <div className="max-w-7xl mx-auto px-4">
@@ -83,7 +92,21 @@ export default async function TheBandPage() {
           ))}
         </section>
 
+         <hr className="my-16 border-gray-700" />
+
+        {/* ================= IMAGES & WORDS ================= */}
+        <section>
+          <h2 className="text-4xl font-extrabold text-yellow-400 mb-6 flex items-center">
+            <Camera className="mr-3" />
+            Glimpses of Pollengers
+          </h2>
+
+          {/* Client Component */}
+          <GallerySection images={galleryData} />
+        </section>
+
         <hr className="my-16 border-gray-700" />
+
 
         {/* ================= VIDEOS ================= */}
         <section>
@@ -96,9 +119,7 @@ export default async function TheBandPage() {
           <VideoSection playlists={playlists} />
         </section>
 
-        <hr className="my-16 border-gray-700" />
-
-        {/* ====================== SHOWS ================ */}
+       {/* ====================== SHOWS ================ */}
 
        <hr className="my-16 border-gray-700" />
 

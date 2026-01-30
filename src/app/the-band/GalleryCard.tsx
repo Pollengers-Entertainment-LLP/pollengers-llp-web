@@ -2,7 +2,7 @@
 'use client';
 import { useState } from 'react';
 import { MapPin, Calendar, Maximize2, X } from 'lucide-react';
-import type { GalleryImage } from '@/types';
+import type { GalleryImage } from '@/constants';
 
 export default function GalleryCard({ img }: { img: GalleryImage }) {
   const [isOpen, setIsOpen] = useState(false);

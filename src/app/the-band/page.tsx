@@ -59,8 +59,8 @@ export default async function TheBandPage() {
 
   /** Fetch Gallery **/
 
-  const { galleryData } =  await fetchGallery();
-  console.log(galleryData);
+  const galleryData =  await fetchGallery();
+  //console.log(galleryData);
 
   return (
     <main className="min-h-screen bg-gray-900 text-white pt-20 pb-16">

@@ -131,6 +131,8 @@ export async function fetchGallery(): Promise<GalleryImage[]> {
         return dateB - dateA;
     });
 
+    //return images;
+
 
   } catch (error) {
 

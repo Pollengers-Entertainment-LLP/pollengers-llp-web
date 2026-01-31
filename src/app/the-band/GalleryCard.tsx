@@ -4,6 +4,25 @@ import { useState } from 'react';
 import { MapPin, Calendar, Maximize2, X } from 'lucide-react';
 import type { GalleryImage } from '@/constants';
 
+// Helper function to format the date
+function formatDate(dateString: string) {
+  if (!dateString) return 'N/A';
+
+  // Check if it's just a year (e.g., "2024")
+  if (/^\d{4}$/.test(dateString)) return dateString;
+
+  const date = new Date(dateString);
+  // Check if date is valid
+  if (isNaN(date.getTime())) return dateString; 
+
+  // Format: "21 Jan 2025"
+  return new Intl.DateTimeFormat('en-GB', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }).format(date);
+}
+
 export default function GalleryCard({ img }: { img: GalleryImage }) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -40,7 +59,7 @@ export default function GalleryCard({ img }: { img: GalleryImage }) {
           
           <div className="flex items-center gap-2 mt-1 text-xs text-gray-400">
             <Calendar className="w-3 h-3" />
-            <span>{img.dateOrYear || 'N/A'}</span>
+            <span>{formatDate(img.dateOrYear)}</span>
           </div>
         </div>
       </div>

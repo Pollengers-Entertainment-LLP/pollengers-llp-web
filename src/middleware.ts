@@ -35,6 +35,9 @@ export function middleware(req: NextRequest) {
     '/artist': '/artists',
     '/service': '/services',
     '/contacts': '/contact',
+    '/live-shows': '/live',
+    '/live-shows-and-appearances': '/live',
+
   };
 
   const redirectTarget = redirectMap[normalizedPath];

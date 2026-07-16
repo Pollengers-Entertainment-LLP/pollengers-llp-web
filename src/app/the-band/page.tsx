@@ -1,4 +1,6 @@
 // src/app/the-band/page.tsx
+// export const dynamic = 'force-dynamic';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { Film, Camera } from 'lucide-react'; 
@@ -76,21 +78,7 @@ export default async function TheBandPage() {
           </p>
         </header>
 
-        {/* ================= DOWNLOAD HUB ================= */}
-        <section className="grid md:grid-cols-3 gap-6 mt-10">
-          {actionItems.map((item) => (
-            <Link
-              key={item.title}
-              href={item.href}
-              className={`p-6 rounded-xl shadow-xl transition
-                          hover:scale-[1.02] ${item.color}`}
-            >
-              <item.icon className="mb-2 w-6 h-6" />
-              <h3 className="font-bold">{item.title}</h3>
-              <p className="text-sm text-gray-200">{item.description}</p>
-            </Link>
-          ))}
-        </section>
+   
 
          <hr className="my-16 border-gray-700" />
 

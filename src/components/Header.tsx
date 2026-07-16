@@ -12,9 +12,10 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '/' }, 
-    { name: 'The Band', href: '/the-band' }, 
-    { name: 'Services', href: '/services' }, 
+    { name: 'Home', href: '/' },
+    { name: 'Live', href: '/live' },
+    { name: 'The Band', href: '/the-band' },
+    { name: 'Services', href: '/services' },
     { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ];
@@ -27,24 +28,24 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-sm shadow-lg">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        
+
         {/* Logo/Brand Name Section (unchanged) */}
         <div className="flex-shrink-0">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="flex items-center space-x-2 text-yellow-400"
             onClick={() => setIsOpen(false)} // Close menu if logo is clicked
           >
             <Image
               src="/images/pollengers-logo.jpg"
               alt="Pollengers Logo"
-              width={64} 
-              height={64} 
+              width={64}
+              height={64}
               className="rounded-md"
             />
             <div className="leading-tight">
-                <div className="text-lg md:text-xl font-bold tracking-wider">POLLENGERS</div>
-                <div className="text-xs md:text-sm font-medium tracking-wide opacity-80">ENTERTAINMENT LLP</div>
+              <div className="text-lg md:text-xl font-bold tracking-wider">POLLENGERS</div>
+              <div className="text-xs md:text-sm font-medium tracking-wide opacity-80">ENTERTAINMENT LLP</div>
             </div>
           </Link>
         </div>
@@ -63,20 +64,20 @@ const Header = () => {
             ))}
           </div>
         </div>
-        
+
         {/* 5. Mobile Navigation Button */}
         <div className="md:hidden">
-            <button 
-              className="text-white hover:text-gray-300 p-2 rounded-md transition duration-150"
-              onClick={toggleMenu} // Call the toggle function on click
-            >
-                {/* Conditionally display Menu or X icon based on 'isOpen' state */}
-                {isOpen ? (
-                    <X className="w-6 h-6" /> // Show X when menu is open
-                ) : (
-                    <Menu className="w-6 h-6" /> // Show Menu icon when menu is closed
-                )}
-            </button>
+          <button
+            className="text-white hover:text-gray-300 p-2 rounded-md transition duration-150"
+            onClick={toggleMenu} // Call the toggle function on click
+          >
+            {/* Conditionally display Menu or X icon based on 'isOpen' state */}
+            {isOpen ? (
+              <X className="w-6 h-6" /> // Show X when menu is open
+            ) : (
+              <Menu className="w-6 h-6" /> // Show Menu icon when menu is closed
+            )}
+          </button>
         </div>
       </nav>
 

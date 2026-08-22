@@ -22,7 +22,7 @@ const nextConfig = {
     return [
       {
         source: '/',          // pollengers.com
-        destination: '/live',
+        destination: '/services',
         permanent: true,      // SEO-friendly 301 redirect
       },
     ];

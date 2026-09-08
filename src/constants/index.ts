@@ -22,6 +22,8 @@ export const MANAGER_JOHN_NAME = 'John Phukan';
 export const MANAGER_ADITYA_NAME = 'Aditya Dutta';
 export const PHONE_JOHN = '+91-91013-76196';
 export const PHONE_ADITYA = '+91-70022-18406';
+export const WHATSAPP_JOHN = '919101376196';
+export const WHATSAPP_ADITYA = '917002218406';
 export const BASE_LOCATION = 'Guwahati, Assam · India';
 
 export const LINKTREE_URL = 'https://linktr.ee/pollengers';

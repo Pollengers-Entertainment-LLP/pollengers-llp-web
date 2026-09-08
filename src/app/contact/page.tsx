@@ -2,13 +2,16 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, Whatsapp, MapPin, Globe, Youtube, Facebook, Instagram, QrCode } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
+import { Mail, Phone, MapPin, Globe, Youtube, Facebook, Instagram, QrCode } from 'lucide-react';
 import { 
     CONTACT_EMAIL, 
     MANAGER_JOHN_NAME, 
     MANAGER_ADITYA_NAME, 
     PHONE_JOHN, 
     PHONE_ADITYA, 
+    WHATSAPP_JOHN,
+    WHATSAPP_ADITYA,
     BASE_LOCATION,
     LINKTREE_URL,
     YOUTUBE_URL,
@@ -19,9 +22,9 @@ import {
 // Define the contact details using the constants
 const contactDetails = [
   { icon: Phone, label: `${MANAGER_JOHN_NAME} (Call)`, value: PHONE_JOHN, href: `tel:${PHONE_JOHN}` },
-  { icon: Whatsapp, label: `${MANAGER_JOHN_NAME} (WhatsApp)`, value: PHONE_JOHN, href: `https://wa.me/${PHONE_JOHN}` },
+  { icon: FaWhatsapp, label: `${MANAGER_JOHN_NAME} (WhatsApp)`, value: WHATSAPP_JOHN, href: `https://wa.me/${WHATSAPP_JOHN}?text=Hello Pollengers!` },
   { icon: Phone, label: `${MANAGER_ADITYA_NAME} (Call)`, value: PHONE_ADITYA, href: `tel:${PHONE_ADITYA}` },
-  { icon: Whatsapp, label: `${MANAGER_ADITYA_NAME} (WhatsApp)`, value: PHONE_ADITYA, href: `https://wa.me/${PHONE_ADITYA}` },
+  { icon: FaWhatsapp, label: `${MANAGER_ADITYA_NAME} (WhatsApp)`, value: WHATSAPP_ADITYA, href: `https://wa.me/${WHATSAPP_ADITYA}?text=Hello Pollengers!` },
   { icon: Mail, label: 'Email for Bookings', value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
 ];
 

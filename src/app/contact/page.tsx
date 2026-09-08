@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, Phone, MapPin, Globe, Youtube, Facebook, Instagram, QrCode } from 'lucide-react';
+import { Mail, Phone, Whatsapp, MapPin, Globe, Youtube, Facebook, Instagram, QrCode } from 'lucide-react';
 import { 
     CONTACT_EMAIL, 
     MANAGER_JOHN_NAME, 
@@ -18,8 +18,10 @@ import {
 
 // Define the contact details using the constants
 const contactDetails = [
-  { icon: Phone, label: `${MANAGER_JOHN_NAME} (Call/WhatsApp)`, value: PHONE_JOHN, href: `tel:${PHONE_JOHN}` },
-  { icon: Phone, label: `${MANAGER_ADITYA_NAME} (Call/WhatsApp)`, value: PHONE_ADITYA, href: `tel:${PHONE_ADITYA}` },
+  { icon: Phone, label: `${MANAGER_JOHN_NAME} (Call)`, value: PHONE_JOHN, href: `tel:${PHONE_JOHN}` },
+  { icon: Whatsapp, label: `${MANAGER_JOHN_NAME} (WhatsApp)`, value: PHONE_JOHN, href: `https://wa.me/${PHONE_JOHN}` },
+  { icon: Phone, label: `${MANAGER_ADITYA_NAME} (Call)`, value: PHONE_ADITYA, href: `tel:${PHONE_ADITYA}` },
+  { icon: Whatsapp, label: `${MANAGER_ADITYA_NAME} (WhatsApp)`, value: PHONE_ADITYA, href: `https://wa.me/${PHONE_ADITYA}` },
   { icon: Mail, label: 'Email for Bookings', value: CONTACT_EMAIL, href: `mailto:${CONTACT_EMAIL}` },
 ];
 
